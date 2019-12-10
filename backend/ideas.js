@@ -23,4 +23,6 @@ const ideas = [
         id: 6,
         title: 'here is my title'
     }
-];
+]
+
+export default ideas;
