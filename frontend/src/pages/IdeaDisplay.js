@@ -4,7 +4,7 @@ import NotFoundPage from "./NotFoundPage";
 
 const IdeaDisplay = ({ match }) => {
     const id = match.params.id;
-    const idea = ideas.find(i => i.id == id);
+    const idea = ideas.find(i => i.id === id);
 
     if (!idea) return <NotFoundPage />
 

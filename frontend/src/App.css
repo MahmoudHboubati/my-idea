@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+.app-content {
+  margin: auto;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-content {
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.list-box {
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  margin: 20px 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.list-box-item {
+  margin: 10px 10px 0px 0px;
+  height: 150px;
+  width: 150px;
+  float: left;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-box-item {
+  margin: 10px 10px 0px 0px;
+  height: 150px;
+  width: 150px;
+  background: transparent;
+  border: none;
+  border: dashed 1px #c9c9c9;
+  color: #4a148c;
+}
+
+.btn-box-item:hover {
+  border: solid 2px #4a148c;
+  cursor: pointer;
+}
+
+.clear {
+  clear: both;
+}
+
+.list-box-item .content input,
+.list-box-item .content textarea {
+  width: 100%;
+  border: none;
+  border: solid 1px transparent;
+  background-color: transparent;
+}
+
+.list-box-item .tail .tail-right {
+  font-size: 1em;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+.list-box-item .tail .tail-left {
+  font-size: 0.7em;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.list-box-item .content input:hover,
+.list-box-item .content textarea:hover,
+.list-box-item .content input:focus,
+.list-box-item .content textarea:focus {
+  border: solid 1px #e6e6e6;
+  outline: none;
+}
+
+.list-box-item .content input.title {
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.list-box-item .content textarea {
+  resize: none;
+}
+
+.fa-trash:hover {
+  color: red;
+  cursor: pointer;
 }

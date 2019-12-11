@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/HomePage';
@@ -12,7 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app-content">
         <NavBar />
         <div className="main-content">
           <Switch>
