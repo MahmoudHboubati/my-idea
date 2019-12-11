@@ -79,7 +79,12 @@ h1 {
 .list-box-item .content textarea {
   resize: none;
 }
-
+.list-box-item .fa-trash {
+  display: none;
+}
+.list-box-item:hover .fa-trash {
+  display: inline;
+}
 .fa-trash:hover {
   color: red;
   cursor: pointer;
