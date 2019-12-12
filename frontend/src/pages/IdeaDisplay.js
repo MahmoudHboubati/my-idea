@@ -1,8 +1,10 @@
 import React from "react";
-import ideas from "./ideas";
 import NotFoundPage from "./NotFoundPage";
+import { getIdeas } from '../services/IdeaService';
 
 const IdeaDisplay = ({ match }) => {
+
+    const ideas = getIdeas();
     const id = match.params.id;
     const idea = ideas.find(i => i.id === id);
 

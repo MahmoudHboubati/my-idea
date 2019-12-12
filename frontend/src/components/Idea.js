@@ -23,10 +23,12 @@ export default function Idea({ key, idea }) {
                 <div className="tail-left">
                     {idea.createdOn}
                 </div>
-                <div className="tail-right">
-                    <FontAwesomeIcon icon={faTrash} />
-                </div>
+                {idea.id &&
+                    < div className="tail-right">
+                        <FontAwesomeIcon icon={faTrash} />
+                    </div>
+                }
             </div>
-        </li>
+        </li >
     )
 }
