@@ -14,6 +14,10 @@ h1 {
   margin: 20px 0px;
 }
 
+.clear {
+  clear: both;
+}
+
 .list-box-item {
   margin: 10px 10px 0px 0px;
   height: 150px;
@@ -21,24 +25,53 @@ h1 {
   float: left;
   position: relative;
 }
+.list-box-item::after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 8px;
+  right: 2px;
+  width: 50%;
+  top: 80%;
+  background: #777;
 
-.btn-box-item {
-  margin: 10px 10px 0px 0px;
-  height: 150px;
-  width: 150px;
-  background: transparent;
-  border: none;
-  border: dashed 1px #c9c9c9;
-  color: #4a148c;
+  -webkit-box-shadow: 0 10px 5px #777;
+  -moz-box-shadow: 0 10px 5px #777;
+  box-shadow: 0 10px 5px #777;
+  -webkit-transform: rotate(4deg);
+  -moz-transform: rotate(4deg);
+  -o-transform: rotate(4deg);
+  -ms-transform: rotate(4deg);
+  transform: rotate(4deg);
+}
+.list-box-item::before {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 8px;
+  left: 2px;
+  width: 50%;
+  top: 80%;
+  background: #777;
+
+  -webkit-box-shadow: 0 10px 5px #777;
+  -moz-box-shadow: 0 10px 5px #777;
+  box-shadow: 0 10px 5px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
 }
 
-.btn-box-item:hover {
-  border: solid 2px #4a148c;
-  cursor: pointer;
+.list-box-item.bright {
+  background-color: #3aff6e;
 }
-
-.clear {
-  clear: both;
+.list-box-item.high {
+  background-color: #ee0adb;
+}
+.list-box-item.dark {
+  background-color: #0a74ee;
 }
 
 .list-box-item .content input,
@@ -49,18 +82,8 @@ h1 {
   background-color: transparent;
 }
 
-.list-box-item .tail .tail-right {
-  font-size: 1em;
-  position: absolute;
-  right: 20px;
-  bottom: 0;
-}
-
-.list-box-item .tail .tail-left {
-  font-size: 0.7em;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+.list-box-item .content input {
+  padding: 5px;
 }
 
 .list-box-item .content input:hover,
@@ -78,7 +101,23 @@ h1 {
 
 .list-box-item .content textarea {
   resize: none;
+  padding: 5px 5px 0px 5px;
 }
+
+.list-box-item .tail .tail-right {
+  font-size: 1em;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+.list-box-item .tail .tail-left {
+  font-size: 0.7em;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
 .list-box-item .fa-trash {
   display: none;
 }
@@ -87,5 +126,20 @@ h1 {
 }
 .fa-trash:hover {
   color: red;
+  cursor: pointer;
+}
+
+.btn-box-item {
+  margin: 10px 10px 0px 0px;
+  height: 150px;
+  width: 150px;
+  background: transparent;
+  border: none;
+  border: dashed 1px #c9c9c9;
+  color: #4a148c;
+}
+
+.btn-box-item:hover {
+  border: solid 2px #4a148c;
   cursor: pointer;
 }
