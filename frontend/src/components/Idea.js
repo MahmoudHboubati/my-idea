@@ -6,6 +6,8 @@ export default function Idea({ key, idea }) {
 
     const [title, setTitle] = useState(idea.title);
     const [body, setBody] = useState(idea.body);
+    const onChangeBody = event => setBody(event.target.value)
+    const onChangeTitle = event => setTitle(event.target.value)
 
     return (
         <li key={key} className={"list-box-item bright"}>
@@ -13,11 +15,11 @@ export default function Idea({ key, idea }) {
                 <input maxLength="140"
                     className="title"
                     value={title}
-                    onChange={(event) => setTitle(event.target.value)} />
+                    onChange={onChangeTitle} />
                 <textarea maxLength="140"
                     rows="7"
                     className="body"
-                    value={body} onChange={(event) => setBody(event.target.value)} />
+                    value={body} onChange={onChangeBody} />
             </div>
             <div className="tail">
                 <div className="tail-left">

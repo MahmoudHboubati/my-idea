@@ -12,6 +12,7 @@
   width: 150px;
   float: left;
   position: relative;
+  list-style: none;
 }
 .list-box-item::after {
   z-index: -1;
@@ -125,7 +126,7 @@
   font-size: 1.1em;
 }
 
-.btn-box-item {
+/* .btn-box-item {
   margin: 10px 10px 0px 0px;
   height: 150px;
   width: 150px;
@@ -133,7 +134,7 @@
   border: none;
   border: dashed 1px #c9c9c9;
   color: #4a148c;
-}
+} */
 
 .btn-box-item:hover {
   border: solid 2px #4a148c;

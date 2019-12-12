@@ -6,20 +6,26 @@ export const saveIdea = (idea) => {
 
 export const getIdeas = () => {
 
-    let ideas = localStorage.getItem('ideas');
+    let data = localStorage.getItem('data');
 
-    if (!ideas) {
-        ideas = initializeIdeas();
-        localStorage.setItem('ideas', ideas);
+    if (!data) {
+        const ideas = initializeIdeas();
+        localStorage.setItem('data', JSON.stringify({ ideas: ideas }));
         return ideas;
     }
 
-    return ideas;
+    return JSON.parse(data).ideas;
 }
 
 const initializeIdeas = () => {
-    return [{
+
+    const date = new Date().toDateString();
+    const firstIdea = {
+        id: 1,
         title: "My First Idea!",
-        body: "What is going in your mind!"
-    }]
+        body: "What is going in your mind!",
+        createdOn: date
+    };
+
+    return [firstIdea];
 }
