@@ -16,6 +16,7 @@ export class IdeaService {
 
         idea.id = ideas.length + 1;
         idea.createdOn = this.getNowDate();
+        idea.light = this.randomLight();
 
         ideas.push(idea);
         this.setIdeas(ideas);
@@ -28,7 +29,7 @@ export class IdeaService {
         let foundIndex;
 
         for (let i = 0; i < ideas.length; i++) {
-            if (ideas[i].id == idea.id) {
+            if (ideas[i].id === idea.id) {
                 foundIndex = i;
                 break;
             }
@@ -41,8 +42,7 @@ export class IdeaService {
         }
 
         this.setIdeas(ideas);
-        return idea
-            ;
+        return idea;
     }
 
     deleteIdea = (idea) => {
@@ -53,10 +53,11 @@ export class IdeaService {
         for (let i = 0; i < ideas.length; i++) {
             if (ideas[i].id === idea.id) {
                 deleteIndex = i;
+                break;
             }
         }
 
-        if (deleteIndex) {
+        if (deleteIndex >= 0) {
             ideas.splice(deleteIndex, 1);
         }
 
@@ -74,7 +75,6 @@ export class IdeaService {
     }
 
     initializeIdeas = () => {
-
         const date = this.getNowDate();
         const firstIdea = {
             id: 1,
@@ -93,5 +93,22 @@ export class IdeaService {
     getNowDate() {
         return new Date().toDateString();
     }
-}
 
+    initializeDefaultIdea() {
+        return { title: "", body: "" };
+    }
+
+    randomLight() {
+
+        var lights = [
+            'bright',
+            'high',
+            'dark',
+            'paper'
+        ];
+
+        var randomNumber = Math.floor(Math.random() * lights.length);
+
+        return lights[randomNumber];
+    }
+}

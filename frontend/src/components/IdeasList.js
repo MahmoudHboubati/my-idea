@@ -2,39 +2,37 @@ import React, { useState } from "react";
 import Idea from "./Idea";
 import { IdeaService } from "../services/IdeaService";
 
-const IdeasList = ({ ideas }) => {
-
+const IdeasList = () => {
     const service = new IdeaService();
-
-    const [ideasStateInfo, setIdeasStateInfo] = useState(ideas);
+    const [ideasStateInfo, setIdeasStateInfo] = useState(service.getIdeas());
+    const [newIdea, setNewIdea] = useState(service.initializeDefaultIdea());
 
     const deleteIdea = (idea) => {
-        console.log('isDeleted', idea);
-        console.log(ideas.indexOf(idea));
         service.deleteIdea(idea);
-        ideas.splice(ideas.indexOf(idea), 1);
-        // ideas.push(idea);
-        setIdeasStateInfo(ideas);
-        console.log(ideasStateInfo);
+        setIdeasStateInfo(service.getIdeas());
     };
 
     const saveIdea = (idea) => {
-        console.log('saveIdea', idea);
-        console.log(ideas.indexOf(idea));
-        service.deleteIdea(idea);
-        ideas.splice(ideas.indexOf(idea), 1);
-        // ideas.push(idea);
-        setIdeasStateInfo(ideas);
-        console.log(ideasStateInfo);
+        service.saveIdea(idea);
+        setIdeasStateInfo(service.getIdeas());
     };
+
+    const saveNewIdea = (idea) => {
+        if (idea.title || idea.body) {
+            saveIdea(idea);
+            setNewIdea(service.initializeDefaultIdea());
+        }
+    }
 
     return (
         <ul className="list-box">
             {ideasStateInfo.map((idea, key) => (
                 <Idea key={key} idea={idea} deleteIdea={deleteIdea} saveIdea={saveIdea} />
             ))}
+            <Idea idea={newIdea} saveIdea={saveNewIdea} />
         </ul>
-    )
+    );
 };
 
 export default IdeasList;
+
